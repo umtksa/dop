@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Camera Prompt Editor</title>
+    
+    <!-- Tailwind CSS (via CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-green': '#00ffcc',
+            }
+          }
+        }
+      }
+    </script>
+    
+    <link rel="stylesheet" href="style.css" />
+    
+    <!-- Three.js Import Map -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body class="bg-[#111113] text-white font-sans overflow-hidden relative selection:bg-brand-green/30 m-0 w-screen h-screen">
+    <div id="canvas-container" class="absolute inset-0 z-0 cursor-move"></div>
+
+    <div class="absolute bottom-0 left-0 z-10 w-full flex justify-center pb-0">
+      <div 
+        id="copy-container"
+        class="w-full bg-[#0b0b0c]/90 backdrop-blur-md border-t border-[#2a2a2d] shadow-[0_-10px_40px_rgba(0,0,0,0.5)] px-6 py-4 text-center cursor-pointer hover:bg-[#121214]/90 transition-colors group flex items-center justify-center min-h-[5rem]"
+        title="Click to copy prompt"
+      >
+        <p id="prompt-text" class="text-sm md:text-base font-mono leading-relaxed tracking-wide transition-colors text-neutral-300 group-hover:text-white">
+          Loading prompt...
+        </p>
+      </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
